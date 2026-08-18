@@ -36,7 +36,7 @@ const todoRouter = () => {
         path:"modify/:no",
         HydrateFallback: () => <div>Loading...</div>,
         lazy: async () => {
-            const {default: Component} = await import("../pages/todo/Modify");
+            const {default: Component} = await import("../pages/todo/ModifyPage");
             return {Component}
         }
     }

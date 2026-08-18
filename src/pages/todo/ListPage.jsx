@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSearchParams } from 'react-router'
-import ListComponent from './ListComponent'
+import ListComponent from '../../components/todo/ListComponent'
 
 const ListPage = () => {
     

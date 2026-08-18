@@ -25,3 +25,24 @@ export const getList = async (pageParam) => {
     // 응답 데이터 반환
     return response.data;
 };
+
+// Todo 등록
+export const postAdd = async (todoObject) => {
+    // Post방식으로 Todo 데이터 전송
+    const response = await axios.post(prefix, todoObject);
+
+    // 응답 데이터 반환
+    return response.data;
+}
+
+// Todo 삭제
+export const deleteOne = async (no) => {
+    const response = await axios.delete(`${prefix}/${no}`);
+    return response.data;
+}
+
+// Todo 수정
+export const putOne = async (todo) => {
+    const response = await axios.put(`${prefix}/${no}`, todo);
+    return response.data;
+}

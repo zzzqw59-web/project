@@ -1,6 +1,7 @@
 import React from 'react'
 import { createSearchParams, useNavigate, useParams, useSearchParams } from 'react-router'
-import ReadComponents from './ReadComponents';
+import ReadComponents from '../../components/todo/ReadComponents';
+
 
 const ReadPage = () => {
     const {no} = useParams();
