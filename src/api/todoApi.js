@@ -43,6 +43,6 @@ export const deleteOne = async (no) => {
 
 // Todo 수정
 export const putOne = async (todo) => {
-    const response = await axios.put(`${prefix}/${no}`, todo);
+    const response = await axios.put(`${prefix}/${todo.no}`, todo);
     return response.data;
 }

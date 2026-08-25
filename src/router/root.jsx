@@ -1,6 +1,6 @@
-import { Children } from "react";
 import { createBrowserRouter } from "react-router";
 import todoRouter from "./todoRouter";
+import MemberRouter from "./MemberRouter";
 
 const root = createBrowserRouter([
     {
@@ -30,6 +30,12 @@ const root = createBrowserRouter([
         // /todo의 하위 경로 설정
         children: todoRouter(),
     },
+    {
+        path: "/member",
+        HydrateFallback: () => <div>Loading...</div>,
+        // member 하위 라우팅 설정
+        children: MemberRouter(),
+    }
 ]);
 
 export default root;
