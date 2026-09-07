@@ -1,15 +1,22 @@
-import React from 'react'
+import useCustomLogin from '../../hooks/useCustomLogin';
 import BasicLayout from '../../layouts/BasicLayout'
 import { Outlet, useNavigate } from 'react-router'
 
 const IndexPage = () => {
     const navigate = useNavigate();
+    const {isLogin, moveToLogin} = useCustomLogin();
 
     const moveToList = () => {
         navigate("list");
     }
 
     const moveToAdd = () => {
+        // 로그인 하지 않은 경우
+        if (!isLogin) {
+            alert("로그인이 필요합니다.");
+            moveToLogin();
+            return;
+        }
         navigate("add");
     }
   return (

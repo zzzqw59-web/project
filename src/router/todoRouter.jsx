@@ -1,6 +1,4 @@
-import React, { lazy } from 'react'
 import { Navigate } from 'react-router';
-import { HydratedRouter } from 'react-router/dom'
 
 const todoRouter = () => {
   return [

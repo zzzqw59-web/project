@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { loginPostAsync } from "../../slice/loginSlice";
+import useCustomLogin from "../../hooks/useCustomLogin";
 
 const initState = {
     email: "",
@@ -12,7 +11,11 @@ const LoginComponent = () => {
     const [loginParam, setLoginParam] = useState(initState);
 
     // Redux Store에 액션을 전달하기 위한 dispatch 함수
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
+
+    // const navigate = useNavigate();
+
+    const {doLogin, moveToPath} = useCustomLogin();
 
     // 입력값 변경 처리
     const handleChange = (e) => {
@@ -28,7 +31,15 @@ const LoginComponent = () => {
         // login 액션을 Redux Store에 전달
         // dispatch(login(loginParam));
 
-        dispatch(loginPostAsync(loginParam)); // loginSlice의 비동기 호출
+        doLogin(loginParam).then(data => {
+            console.log(data);
+            alert("로그인 성공");
+
+            moveToPath("/");
+        }).catch((error) => {
+            console.log(error);
+            alert(error.message);
+        }); // loginSlice의 비동기 호출
     };
 
     // 입력 영역을 생성하는 함수

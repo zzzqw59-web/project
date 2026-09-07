@@ -1,4 +1,3 @@
-import React from 'react'
 
 const ResultModal = ({title, content, callBackFn}) => {
     // 모달 닫기 처리

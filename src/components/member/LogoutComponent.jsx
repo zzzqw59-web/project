@@ -1,12 +1,13 @@
-import { useDispatch } from "react-redux"
-import { logout } from "../../slice/loginSlice";
+import useCustomLogin from "../../hooks/useCustomLogin";
 
 const LogoutComponent = () => {
-  const dispatch = useDispatch();
+  const {doLogout, moveToPath} = useCustomLogin();
 
   // 로그아웃 버튼 클릭 처리
   const handleClickLogout = () => {
-    dispatch(logout());
+    doLogout();
+    alert("로그아웃 되었습니다.");
+    moveToPath("/");
   };
   return (
     <div className="mx-auto mt-16 w-full max-w-lg rounded-xl border border-gray-200 bg-white p-8 shadow-md">

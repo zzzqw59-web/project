@@ -16,13 +16,17 @@ const BasicMenu = () => {
             </li>
 
             {/* 로그인한 사용자에게만 Todo 메뉴 출력 */}
-            {
+            {/* {
               loginState.email && (
                 <li className="pr-6 text-2xl">
                   <Link to={"/todo/list"}>Todo</Link>
                 </li>
               )
-            }
+            } */}
+
+            <li className="pr-6 text-2xl">
+              <Link to="/todo/list">Todo</Link>
+            </li>
         </ul>
       </div>
 

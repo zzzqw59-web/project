@@ -1,4 +1,5 @@
 import axios from "axios";
+import jwtAxios from "../util/jwtUtil";
 
 // 서버 주소
 export const API_SERVER_HOST = "http://localhost:8080";
@@ -29,7 +30,7 @@ export const getList = async (pageParam) => {
 // Todo 등록
 export const postAdd = async (todoObject) => {
     // Post방식으로 Todo 데이터 전송
-    const response = await axios.post(prefix, todoObject);
+    const response = await jwtAxios.post(prefix, todoObject);
 
     // 응답 데이터 반환
     return response.data;
@@ -37,12 +38,12 @@ export const postAdd = async (todoObject) => {
 
 // Todo 삭제
 export const deleteOne = async (no) => {
-    const response = await axios.delete(`${prefix}/${no}`);
+    const response = await jwtAxios.delete(`${prefix}/${no}`);
     return response.data;
 }
 
 // Todo 수정
 export const putOne = async (todo) => {
-    const response = await axios.put(`${prefix}/${todo.no}`, todo);
+    const response = await jwtAxios.put(`${prefix}/${todo.no}`, todo);
     return response.data;
 }

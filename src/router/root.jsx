@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import todoRouter from "./todoRouter";
 import MemberRouter from "./MemberRouter";
+import walkingRouter from "./walkingRouter";
 
 const root = createBrowserRouter([
     {
@@ -35,6 +36,13 @@ const root = createBrowserRouter([
         HydrateFallback: () => <div>Loading...</div>,
         // member 하위 라우팅 설정
         children: MemberRouter(),
+    },
+    {
+        path: "/walking",
+        HydrateFallback: () => <div>Loading...</div>,
+
+        // openapi 하위 라우팅 설정
+        children: walkingRouter(),
     }
 ]);
 

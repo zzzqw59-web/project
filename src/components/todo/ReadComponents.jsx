@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import { getOne } from '../../api/todoApi';
-import useCustomMove from '../../hooks/useCostomMove';
+import useCustomMove from '../../hooks/useCustomMove';
+import useCustomLogin from '../../hooks/useCustomLogin';
 
 
 const initState = {
@@ -14,6 +15,12 @@ const initState = {
 const ReadComponents = ({no}) => {
     const [todo, setTodo] = useState(initState);
     const {moveToList, moveToModify} = useCustomMove();
+
+    // 로그인 정보 가져오기
+    const {loginState} = useCustomLogin();
+
+    // 현재 로그인한 사용자가 작성자인지 확인
+    const isWriter = loginState.email === todo.writer;
 
     useEffect(() => {
         getOne(no).then((data) => {
@@ -30,10 +37,14 @@ const ReadComponents = ({no}) => {
       {makeDiv("마감일", todo.dueDate)}
       {makeDiv("완료 여부", todo.completed ? "완료" : "미완료")}
 
+
       {/* 버튼 영역 */}
       <div className="flex justify-end gap-3 p-4">
         <button type='button' className='w-32 rounded-md bg-blue-500 px-4 py-3 text-lg font-semibold text-white hover:bg-blue-600' onClick={moveToList}>List</button>
-        <button type='button' className='w-32 rounded-md bg-red-500 px-4 py-3 text-lg font-semibold text-white hover:bg-blue-600' onClick={() => moveToModify(no)}>Modify</button>
+        {/* 본인이 작성한 Todo에만 수정 버튼 표시 */}
+        {isWriter && (
+            <button type='button' className='w-32 rounded-md bg-red-500 px-4 py-3 text-lg font-semibold text-white hover:bg-blue-600' onClick={() => moveToModify(no)}>Modify</button>
+        )}
       </div>
     </div>
   )
