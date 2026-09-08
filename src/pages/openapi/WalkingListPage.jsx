@@ -1,4 +1,4 @@
-import WalkingListComponent from "../../components/member/openapi/WalkingListComponent"
+import WalkingListComponent from "../../components/openapi/WalkingListComponent"
 import BasicLayout from "../../layouts/BasicLayout"
 
 const WalkingListPage = () => {
@@ -7,6 +7,7 @@ const WalkingListPage = () => {
         <div className="text-3xl font-bold mb-6">
             부산 도보 여행 정보
         </div>
+
         <WalkingListComponent />
     </BasicLayout>
   )
