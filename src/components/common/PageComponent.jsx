@@ -1,5 +1,3 @@
-import React from 'react'
-
 const PageComponent = ({serverData, movePage}) => {
   return (
     <div className='m-6 flex justify-center'>

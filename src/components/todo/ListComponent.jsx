@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import useCustomMove from '../../hooks/useCustomMove';
 import { getList } from '../../api/todoApi';
 import PageComponent from '../common/PageComponent';

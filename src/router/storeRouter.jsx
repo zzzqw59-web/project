@@ -1,21 +1,22 @@
-const foodRouter = () => {
+const storeRouter = () => {
   return [
     {
         path: "list",
         HydrateFallBack: <div>Loading...</div>,
         lazy: async () => {
-            const {default: Component} = await import("../pages/openapi/FoodListPage");
+            const {default: Component} = await import("../pages/openapi/StoreListPage");
             return {Component};
         }
     },
     {
-        path: "list",
+        path: "read/:no",
         HydrateFallBack: <div>Loading...</div>,
         lazy: async () => {
-            const {default: Component} = await import("../pages/openapi/FoodListPage");
+            const {default: Component} = await import("../pages/openapi/StoreReadPage");
             return {Component};
         }
-    }
+    },
+    
   ]
 }
-export default foodRouter
+export default storeRouter

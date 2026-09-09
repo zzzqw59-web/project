@@ -40,12 +40,17 @@ const useCustomMove = () => {
         });
     };
 
-    const moveToRead = (no) => {
-        navigate({
-            pathname: `../read/${no}`,
+    const moveToRead = (store) => {
+    navigate(
+        {
+            pathname: `../read/${store.bizesId}`,
             search: `?${queryDefault}`
-        });
-    };
+        },
+        {
+            state: store
+        }
+    );
+};
 
     const moveToModify = (no) => {
         navigate({

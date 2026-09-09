@@ -3,6 +3,7 @@ import todoRouter from "./todoRouter";
 import MemberRouter from "./MemberRouter";
 import walkingRouter from "./walkingRouter";
 import foodRouter from "./foodRouter";
+import storeRouter from "./storeRouter";
 
 const root = createBrowserRouter([
     {
@@ -50,6 +51,12 @@ const root = createBrowserRouter([
         HydrateFallback: () => <div>Loading...</div>,
         // 부산 맛집 정보 하위 라우팅
         children: foodRouter(),
+    },
+    {
+       path: "/store",
+        HydrateFallback: () => <div>Loading...</div>,
+        // 부산 맛집 정보 하위 라우팅
+        children: storeRouter(), 
     }
 ]);
 

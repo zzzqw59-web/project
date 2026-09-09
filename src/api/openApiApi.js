@@ -22,3 +22,13 @@ export const getFoodList = async ({page, size}) => {
 
     return response.data;
 }
+
+export const getStoreList = async ({page, size}) => {
+    const response = await axios.get(`${prefix}/store`, {
+        params: {
+            page, size
+        },
+    });
+
+    return response.data;
+}

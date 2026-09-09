@@ -27,6 +27,15 @@ const BasicMenu = () => {
             <li className="pr-6 text-2xl">
               <Link to="/todo/list">Todo</Link>
             </li>
+            <li className="pr-6 text-2xl">
+              <Link to="/walking/list">부산도보여행</Link>
+            </li>
+            <li className="pr-6 text-2xl">
+              <Link to="/food/list">부산맛집정보</Link>
+            </li>
+            <li className="pr-6 text-2xl">
+              <Link to="/store/list">시장정보</Link>
+            </li>
         </ul>
       </div>
 
